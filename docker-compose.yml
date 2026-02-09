@@ -1,8 +1,8 @@
 services:
-  torch.dev.gpu:
+  torch.dev.cpu:
     build:
       context: .
-      dockerfile: docker/Dockerfile.torch.dev.gpu
+      dockerfile: docker/Dockerfile.torch.dev.cpu
       args:
         UV_EXTRA: ${UV_EXTRA:-cpu}
         WORKSPACE_DIR: ${WORKSPACE_DIR:-/workspaces/eng-ai-agents}
@@ -27,13 +27,6 @@ services:
     command:  bash -c "tail -f /dev/null"
     stdin_open: true
     tty: true
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
     networks:
       - ai-agents-network
   ros.dev.gpu: 
@@ -84,13 +77,6 @@ services:
     security_opt:
       - seccomp:unconfined
       - apparmor:unconfined
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
     networks:
       - ai-agents-network
   # ##########

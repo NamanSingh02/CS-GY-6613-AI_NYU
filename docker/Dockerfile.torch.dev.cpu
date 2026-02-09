@@ -88,14 +88,18 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs
 
 # Quarto
-RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb && \
-    dpkg -i quarto-linux-amd64.deb
+# Quarto (download correct arch: arm64 on Apple Silicon)
+RUN ARCH="$(dpkg --print-architecture)" && \
+    curl -L -o "quarto-linux-${ARCH}.deb" "https://quarto.org/download/latest/quarto-linux-${ARCH}.deb" && \
+    dpkg -i "quarto-linux-${ARCH}.deb" && \
+    rm -f "quarto-linux-${ARCH}.deb"
 #RUN quarto install tinytex
 
-RUN curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor > /usr/share/keyrings/1password-archive-keyring.gpg \
-    && echo "deb [signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main" > /etc/apt/sources.list.d/1password.list \
-    && apt update \
-    && apt install -y 1password-cli
+# 1Password CLI (skip on Apple Silicon / arm64; not needed for assignment)
+#RUN curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor > /usr/share/keyrings/1password-archive-keyring.gpg \
+ #   && echo "deb [signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main" > /etc/apt/sources.list.d/1password.list \
+  #  && apt update \
+   # && apt install -y 1password-cli
 
 # Create workspace directory
 WORKDIR ${WORKSPACE_DIR}
