@@ -1,8 +1,8 @@
 ## Assignment 1
 
-**Name of the assignment:** Getting Started on Linear Algebra
-**Student Name:** Naman Singh
-**Date of submission:** 8th Feb 2026
+**Name of the assignment:** Getting Started on Linear Algebra  
+**Student Name:** Naman Singh  
+**Date of submission:** 8th Feb 2026  
 
 
 ## How to run code, docker, VS code
