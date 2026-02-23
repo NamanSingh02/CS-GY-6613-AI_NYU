@@ -11,7 +11,9 @@
   - Fine-tunes a part-level YOLO segmentation model using Ultralytics `carparts-seg`
   - Produces two Parquet files and uploads them to Hugging Face
 - Hugging Face dataset repo (Parquets + README): 
+
 **Hugging face commit ID**: a130e362149f1fa9541724f046e21f0897cc9c41
+
 https://huggingface.co/datasets/Naman02/rav4-exterior-retrieval-interval2
 
 ## Outputs (Hugging Face)
