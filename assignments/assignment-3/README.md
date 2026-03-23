@@ -153,7 +153,15 @@ These videos contain:
 - and trajectory visualization.
 
 ### Video 1
-YouTube link: `https://youtu.be/jyfp96JDxZg`
+YouTube link: https://youtu.be/jyfp96JDxZg
+
+Google Drive link: 
+https://drive.google.com/file/d/1s1bD2i9dv8eBmvh8qPYcJ9PIm7ldWdu4/view?usp=sharing
+
 
 ### Video 2
-YouTube link: `https://youtu.be/5BUGWK-5HGU`
+YouTube link: https://youtu.be/5BUGWK-5HGU
+
+Google Drive link:
+https://drive.google.com/file/d/1LUXA19goMSZ1Pnc7KksdXtnWrH77YSly/view?usp=sharing
+
