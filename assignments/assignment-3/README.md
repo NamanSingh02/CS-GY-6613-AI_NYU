@@ -141,9 +141,6 @@ The Hugging Face dataset contains the **sample frames with detections** in **Par
 Dataset link:  
 **`https://huggingface.co/datasets/Naman02/assignment3-drone-detections2`**
 
-Contents:
-- Parquet-backed detection records
-- sample detection frames / associated metadata
 
 
 
