@@ -1,4 +1,4 @@
-name: Check Collaborators and Repo Privacy
+name: Check Collaborators and Public Repository
 
 on: [push, public, workflow_dispatch]
 
@@ -17,7 +17,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Check Collaborators and Repository Privacy
+      - name: Check Collaborators and Public Repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # This token is provided by Actions, no need to create one
           REPOSITORY: ${{ github.repository }}
@@ -39,10 +39,9 @@ jobs:
           repo = os.getenv('REPOSITORY')
           headers = {'Authorization': f'token {token}'}
 
-          # Check if the repository is private
+          # Check if the repository is public
           repo_info = requests.get(f'https://api.github.com/repos/{repo}', headers=headers).json()
-          #changing the visibility from private to public after course completion
-          if repo_info.get('public', False):
+          if not repo_info.get('private', True):
               print(GREEN + "[✓] Repository is public." + RESET)
           else:
               print(RED + "[X] Repository is NOT public." + RESET)
